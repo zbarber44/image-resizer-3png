@@ -4,7 +4,9 @@ from PIL import Image, ImageEnhance
 import io
 import zipfile
 
-st.set_page_config(page_title="Image → 3 PNGs", layout="wide")
+st.set_page_config(page_title="3 PNG Resizer",
+    page_icon="🖼️",
+    layout="wide")
 
 st.title("Resize One Image → Three PNG Sizes (20 / 200 / 2048 px)")
 
@@ -84,4 +86,5 @@ if uploaded_file is not None:
             cols = st.columns(3)
             for i, (name, buf) in enumerate(outputs):
                 img = Image.open(io.BytesIO(buf))
+
                 cols[i].image(img, caption=name, use_column_width=True)
